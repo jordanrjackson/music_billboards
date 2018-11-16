@@ -1,2 +1,10 @@
-<h1>Songs#new</h1>
-<p>Find me in app/views/songs/new.html.erb</p>
+<h1>Add a song</h1>
+<%= form_for [@artist, @song] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body, required: true %>
+  <br />
+  <%= f.label :author %>
+  <%= f.text_field :author, placeholder: 'Leave Blank To Remain Anonymous' %>
+  <br />
+  <%= f.submit %>
+<% end %>
