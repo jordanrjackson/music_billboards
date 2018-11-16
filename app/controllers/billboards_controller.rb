@@ -9,6 +9,7 @@ class BillboardsController < ApplicationController
   end
 
   def show
+    @artists = Billboard.artists
   end
 
   def new
@@ -18,7 +19,7 @@ class BillboardsController < ApplicationController
 
   def create
     @billboard = Billboard.new(billboard_params)
-    if @billboard.save
+    if @billboards.save
       redirect_to_billboards_path
     else
       render :new
@@ -31,7 +32,7 @@ class BillboardsController < ApplicationController
 
   def update
     if @billboard.update(billboard_params)
-      redirect_to redirect_to_billboards_path
+      redirect_to billboards_path
     else
       render :edit
     end
@@ -39,7 +40,7 @@ class BillboardsController < ApplicationController
 
   def destroy
     @billboard.destroy
-    redirect_to redirect_to_billboards_path
+    redirect_to billboards_path
   end
 
   

@@ -5,6 +5,10 @@ class SongsController < ApplicationController
     @song = @artist.songs.new
   end
 
+  def show 
+    @songs = @artist.songs.all
+  end
+
   def create
     @song = @artist.song.new(song_params)
     if @song.save

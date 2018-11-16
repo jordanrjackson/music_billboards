@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+artists = Artist.create([{ name: 'Def Leppard' }, { name: 'INXS' }])
+songs = Song.create(name: 'Love Bites', artist: artist.first)
+billboards = Billboard.create(name: Billboard Hot 100 (1988))

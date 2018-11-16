@@ -1,7 +1,10 @@
 <h1><%= @billboard.name %></h1>
 <hr />
 <p>What would you like to do?</p>
-<%= link_to "View Artists", billboard_artists_path(@billboard) %>
+<%= link_to "View Artists", billboard_path(@billboard) %>
+<% @artists.each do |artist| %>
+  <h1>Song name: <%= artist.name %></h1>
+<% end %>
 <br />
 <%= link_to "Edit", edit_billboard_path(@billboard) %>
 <br />
