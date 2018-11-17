@@ -9,7 +9,7 @@ class BillboardsController < ApplicationController
   end
 
   def show
-    @artists = Billboard.artists
+    @artists = Billboard.all
   end
 
   def new
