@@ -14,18 +14,17 @@ class BillboardsController < ApplicationController
   end
 
   def create
-    @billboard = Billboard.new(billboard_params)
-
+    @billboard = current_user.Billboard.new(billboard_params)
     if @billboard.save
-      flash[:success] = "Billboard Created"
+      flash[:success] = "Billboard Created!"
       redirect_to @billboard
     else
+      flash[:error] = "Error #{@billboard.errors.full_messages.join("\n")}"
       render :new
     end
   end
 
   def edit
-    render partial: "form"
   end
 
   def update
@@ -59,7 +58,7 @@ class BillboardsController < ApplicationController
   private
 
     def billboard_params
-      params.require(:billboard).permit(:name)
+      params.require(:billboard).permit(:first_name, :last_name)
     end
   
     def set_billboard
