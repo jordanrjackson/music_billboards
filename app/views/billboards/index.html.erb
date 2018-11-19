@@ -1,7 +1,31 @@
-<h1>Click a Billboard to View Content</h1>
-<%= link_to "Create a Billboard", new_billboard_path %>
-<ul>
-  <% @billboards.each do |b| %>
-    <li><%= link_to b.name, billboard_path(b) %></li>
-  <% end %>
-</ul>
+<h1>Billboards</h1>
+<h2>Welcome <%= current_user.first_name %><h2>
+<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+<% if @billboards.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number Of Songs</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @billboards.each do |billboard| %>
+        <tr>
+          <td><%= link_to billboard.name, billboard_path(billboard) %></td>
+          <td><%= billboard.songs.count %></td>
+          <td><%= link_to 'Edit', edit_billboard_path(billboard) %></td>
+          <td><%= link_to 'Destroy', billboard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h3>No Billboards Found, Please Create One!</h3>
+<% end %>
+
+<br>
+<%= link_to 'All Artists', artists_path, class: 'btn' %>
+<%= link_to 'New Billboard', new_billboard_path, class: 'btn blue' %>

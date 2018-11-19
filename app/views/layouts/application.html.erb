@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MusicBillboards</title>
+    <title>MusicBillboardsSolution</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class='blue'>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Billboard Songs</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <%= link_to 'Billboards', billboards_path %>
+          </li>
+          <li>
+            <%= link_to 'Artists', artists_path %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

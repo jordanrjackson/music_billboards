@@ -1,10 +1,5 @@
-<h1>Add a song</h1>
-<%= form_for [@artist, @song] do |f| %>
-  <%= f.label :body %>
-  <%= f.text_area :body, required: true %>
-  <br />
-  <%= f.label :author %>
-  <%= f.text_field :author, placeholder: 'Leave Blank To Remain Anonymous' %>
-  <br />
-  <%= f.submit %>
-<% end %>
+<h1>New Song</h1>
+
+<%= render 'form', song: @song %>
+
+<%= link_to 'Back', artist_songs_path(@artist) %>

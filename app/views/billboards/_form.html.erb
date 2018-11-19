@@ -1,7 +1,30 @@
-<h1><%= @billboard.id ? "Edit Billboard" : "New Billboard" %></h1>
-<hr />
-<%= form_for @billboard do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, required: true, autofocus: true, placeholder: "Name" %>
-  <%= f.submit %>
-<% end %>
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @artist.genre %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @artist.age %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @artist.active %>
+</p>
+
+
+<p>
+  <strong>Song count:</strong>
+  <%= @artist.songs.count %>
+</p>
+
+<%= link_to 'All Songs', artist_songs_path(@artist) %> |
+<%= link_to 'New Song', new_artist_song_path(@artist) %> |
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

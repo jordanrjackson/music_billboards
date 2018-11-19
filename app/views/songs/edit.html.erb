@@ -1,2 +1,6 @@
-<h1>Songs#edit</h1>
-<p>Find me in app/views/songs/edit.html.erb</p>
+<h1>Editing Song</h1>
+
+<%= render 'form', song: @song %>
+
+<%= link_to 'Show', artist_song_path(@artist, @song) %> |
+<%= link_to 'Back', artist_songs_path(@artist) %>

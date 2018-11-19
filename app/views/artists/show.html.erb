@@ -1,11 +1,30 @@
-<h1><%= @billboard.name %> - <%= @artist.name %></h1>
-<p><%= @artist.body %></p>
-<%= link_to 'Edit Artist', edit_billboard_artist_path(@billboard, @artist) %>
-<%= link_to 'Delete Artist', billboard_artist_path(@billboard, @artist), method: :delete %>
-<%= link_to 'Back to Artists', billboard_artists_path(@billboard) %>
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
 
-<%= link_to  "Add Song", new_artist_song_path(@artist) %>
+<p>
+  <strong>Genre:</strong>
+  <%= @artist.genre %>
+</p>
 
-<% @artists.songs.each do |s| %>
-  <%= render "songs/song", { song: s } %>
-<% end %>
+<p>
+  <strong>Age:</strong>
+  <%= @artist.age %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @artist.active %>
+</p>
+
+
+<p>
+  <strong>Song count:</strong>
+  <%= @artist.songs.count %>
+</p>
+
+<%= link_to 'All Songs', artist_songs_path(@artist) %> |
+<%= link_to 'New Song', new_artist_song_path(@artist) %> |
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
